@@ -78,16 +78,20 @@ function displayCode(codeId) {
         document.getElementById(codeId);
 
     const display =
-        document.getElementById("display-" + codeId);
+        document.getElementById(
+            "display-" + codeId
+        );
 
     if (!source || !display) {
         return;
     }
 
     /*
-        textContent مهم جدًا هنا.
-        نحن لا نستخدم innerHTML.
-        لذلك أي HTML داخل الكود سيبقى نصًا فقط.
+        textContent مهم جدًا.
+
+        الكود يتم عرضه كنص فقط.
+        لن يتم تشغيل HTML أو CSS أو JavaScript
+        الموجود داخل الأكواد المنشورة.
     */
 
     display.textContent =
@@ -96,23 +100,31 @@ function displayCode(codeId) {
 
 
 /* ==========================================
-   LOAD ALL CODES
+   LOAD ALL PROJECT CODES
 ========================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    displayCode("code1");
-    displayCode("code2");
-    displayCode("code3");
+        displayCode("project1-html");
 
-});
+        displayCode("project1-css");
+
+        displayCode("project1-js");
+
+    }
+);
 
 
 /* ==========================================
    COPY CODE
 ========================================== */
 
-async function copyCode(codeId, button) {
+async function copyCode(
+    codeId,
+    button
+) {
 
     const source =
         document.getElementById(codeId);
@@ -126,7 +138,9 @@ async function copyCode(codeId, button) {
 
     try {
 
-        await navigator.clipboard.writeText(text);
+        await navigator.clipboard.writeText(
+            text
+        );
 
         showCopied(button);
 
@@ -137,20 +151,38 @@ async function copyCode(codeId, button) {
 
         textarea.value = text;
 
-        textarea.style.position = "fixed";
-        textarea.style.left = "-9999px";
-        textarea.style.top = "0";
-        textarea.style.opacity = "0";
+        textarea.style.position =
+            "fixed";
 
-        document.body.appendChild(textarea);
+        textarea.style.left =
+            "-9999px";
+
+        textarea.style.top =
+            "0";
+
+        textarea.style.opacity =
+            "0";
+
+        document.body.appendChild(
+            textarea
+        );
 
         textarea.focus();
+
         textarea.select();
 
         try {
-            document.execCommand("copy");
+
+            document.execCommand(
+                "copy"
+            );
+
         } catch (copyError) {
-            console.error(copyError);
+
+            console.error(
+                copyError
+            );
+
         }
 
         textarea.remove();
@@ -172,18 +204,27 @@ function showCopied(button) {
     button.innerText =
         "تم النسخ ✓";
 
-    button.classList.add("copied");
+    button.classList.add(
+        "copied"
+    );
 
-    showToast("تم نسخ الكود");
+    showToast(
+        "تم نسخ الكود"
+    );
 
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        button.innerText =
-            originalText;
+            button.innerText =
+                originalText;
 
-        button.classList.remove("copied");
+            button.classList.remove(
+                "copied"
+            );
 
-    }, 1800);
+        },
+        1800
+    );
 }
 
 
@@ -194,7 +235,9 @@ function showCopied(button) {
 function showToast(message) {
 
     const toast =
-        document.getElementById("toast");
+        document.getElementById(
+            "toast"
+        );
 
     if (!toast) {
         return;
@@ -203,14 +246,23 @@ function showToast(message) {
     toast.innerText =
         message;
 
-    toast.classList.add("show");
+    toast.classList.add(
+        "show"
+    );
 
-    clearTimeout(window.toastTimer);
+    clearTimeout(
+        window.toastTimer
+    );
 
     window.toastTimer =
-        setTimeout(() => {
+        setTimeout(
+            () => {
 
-            toast.classList.remove("show");
+                toast.classList.remove(
+                    "show"
+                );
 
-        }, 1800);
+            },
+            1800
+        );
 }
