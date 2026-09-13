@@ -51,7 +51,7 @@ body {
 
 
 /* =================================
-   BACKGROUND
+   SHEEP BACKGROUND
 ================================= */
 
 #sheepBackground {
@@ -503,20 +503,74 @@ body {
 
 
 /* =================================
+   PROJECT CARD
+================================= */
+
+.project-card {
+    width: 100%;
+
+    border-radius: 24px;
+
+    padding: 15px;
+
+    margin-bottom: 20px;
+}
+
+.project-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 8px 5px 20px;
+}
+
+.project-header h3 {
+    font-size: 18px;
+}
+
+.project-header p {
+    margin-top: 6px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+.project-number {
+    color: rgba(255,255,255,0.2);
+
+    font-family: monospace;
+
+    font-size: 20px;
+}
+
+
+/* =================================
    CODE CARDS
 ================================= */
 
 .code-card {
     width: 100%;
-    max-width: 100%;
 
-    border-radius: 21px;
+    border-radius: 18px;
 
     overflow: hidden;
 
     margin-bottom: 15px;
 
-    position: relative;
+    background:
+        rgba(0,0,0,0.18);
+
+    border:
+        1px solid rgba(255,255,255,0.07);
+}
+
+.code-card:last-child {
+    margin-bottom: 0;
 }
 
 .code-card-top {
@@ -570,13 +624,13 @@ body {
 
     font-family: monospace;
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: bold;
 }
 
 .code-title h3 {
-    font-size: 15px;
+    font-size: 14px;
 
     margin-bottom: 5px;
 
@@ -590,7 +644,7 @@ body {
 .code-title span {
     color: var(--text-muted);
 
-    font-size: 11px;
+    font-size: 10px;
 }
 
 .copy-button {
@@ -634,20 +688,15 @@ body {
 
     color: var(--text-muted);
 
-    font-size: 12px;
+    font-size: 11px;
 
     line-height: 1.7;
 }
 
 
 /* =================================
-   RAW CODE STORAGE
+   RAW CODE
 ================================= */
-
-/*
-   هذا العنصر يحتوي على الكود كنص فقط.
-   لن يتم عرضه ولن يتم تنفيذ محتواه.
-*/
 
 .raw-code {
     position: absolute;
@@ -980,6 +1029,18 @@ footer span {
         font-size: 11px;
     }
 
+    .project-card {
+        padding: 10px;
+    }
+
+    .project-header {
+        padding: 8px 3px 16px;
+    }
+
+    .project-header h3 {
+        font-size: 16px;
+    }
+
     .code-card-top {
         padding: 12px;
     }
@@ -1003,3 +1064,7 @@ footer span {
         padding: 16px;
     }
 
+    .notice {
+        padding: 14px;
+    }
+}
